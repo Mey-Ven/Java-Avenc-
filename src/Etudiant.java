@@ -1,13 +1,14 @@
 public class Etudiant {
     private String CNE;
     private String nom;
-    private float Moyenne;
+    private double Moyenne;
     private String decision;
     private String classement;
 
-    public Etudiant(String CNE, String nom) {
+    public Etudiant(String CNE, String nom, double Moyenne) {
         this.CNE = CNE;
         this.nom = nom;
+        this.Moyenne = Moyenne;
     }
 
     public String getCNE() {
@@ -26,7 +27,7 @@ public class Etudiant {
         this.nom = nom;
     }
 
-    public float getMoyenne() {
+    public double getMoyenne() {
         return Moyenne;
     }
 
