@@ -40,5 +40,31 @@ public class Main {
         System.out.println("Moyenne générale: " + moyenneGenerale);
         System.out.println("Meilleure note: " + meiNote);
         System.out.println("Mauvaise note: " + mauNote);
+
+
+        // 4. Création des sous-listes admis_A, redoublants_A et rattrapage_A
+        List<Etudiant> admis_A = new ArrayList<>();
+        List<Etudiant> redoublants_A = new ArrayList<>();
+        List<Etudiant> rattrapage_A = new ArrayList<>();
+
+        // Cette boucle parcourt tous les étudiants de la filière et les classe dans l'une des trois sous-listes (admis, redoublants, rattrapage) en fonction de leur moyenne.
+        for (Etudiant etudiant : filiere_A) {
+            double moyenne = etudiant.getMoyenne();
+            if (moyenne >= 10) {
+                admis_A.add(etudiant);
+                etudiant.setDecision("Admis");
+            } else if (moyenne < 7) {
+                redoublants_A.add(etudiant);
+                etudiant.setDecision("Redoublant");
+            } else {
+                rattrapage_A.add(etudiant);
+                etudiant.setDecision("Rattrapage");
+            }
+        }
+
+        // Affichage des sous-listes
+        System.out.println("Admis: " + admis_A);
+        System.out.println("Redoublants: " + redoublants_A);
+        System.out.println("Rattrapage: " + rattrapage_A);
     }
 }
