@@ -1,15 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        List<Etudiant> filiere_A = new ArrayList<>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Etudiant etudiant1 = new Etudiant("CNE001", "Mehdi");
+        filiere_A.add(etudiant1);
+
+        Etudiant etudiant2 = new Etudiant("CNE002", "Rahaoui");
+        filiere_A.add(etudiant2);
+
+        Etudiant etudiant3 = new Etudiant("CNE003", "Mohammed");
+        filiere_A.add(etudiant3);
+
+        Etudiant etudiant4 = new Etudiant("CNE004", "Ismail");
+        filiere_A.add(etudiant4);
+
+        Etudiant etudiant5 = new Etudiant("CNE005", "Anass");
+        filiere_A.add(etudiant5);
+
+
+        float somme = 0;
+        float meiNote = filiere_A.get(0).getMoyenne();
+        float mauNote = filiere_A.get(0).getMoyenne();
+
+        for (Etudiant etudiant : filiere_A) {
+            float moyenne = etudiant.getMoyenne();
+            somme += moyenne;
+            if (moyenne > meiNote) {
+                meiNote = moyenne;
+            }
+            if (moyenne < mauNote) {
+                mauNote = moyenne;
+            }
         }
+
+        float moyenneGenerale = somme / filiere_A.size();
+        System.out.println("Moyenne générale: " + moyenneGenerale);
+        System.out.println("Meilleure note: " + meiNote);
+        System.out.println("Mauvaise note: " + mauNote);
     }
 }
